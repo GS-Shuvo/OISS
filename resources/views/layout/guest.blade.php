@@ -272,7 +272,8 @@
                 </form>
                 @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 sm:block ml-5">
-                    @auth <button type="button" class="btn btn-outline-success">Success</button>
+                    @auth 
+                        <a href="{{ url('/dashboard') }}" class="btn btn-outline-success">Dashboard</a>
                         <a href="{{ url('/') }}" class="btn btn-outline-success">Home</a>
                     @else
                         <a href="{{ route('login') }}" class="btn btn-outline-info">Log in</a>

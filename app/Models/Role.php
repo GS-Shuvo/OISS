@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class roles extends Model
+class Role extends Model
 {
     use HasFactory;
 
@@ -18,7 +18,7 @@ class roles extends Model
     public function users() : BelongsToMany
     {
         return $this
-            ->belongsToMany(User::class, "role_user")
+            ->belongsToMany(User::class, "role_users")
             ->withTimestamps();
     }
 }

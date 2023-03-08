@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
+use App\Models\roles;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Session;
 
 class CustomAuthController extends Controller
 {
     public function index()
     {
+        if(Auth::check()){
+
+        }
         return view('pages.login');
     }  
 
@@ -23,6 +32,7 @@ class CustomAuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
+
             return redirect()->intended('dashboard')
                         ->withSuccess('Signed in');
         } 
@@ -52,22 +62,20 @@ class CustomAuthController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
           ]);
-            $admin_role = Role::where('name', 'admin')->first();
+            $admin_role = Role::where('name', 'customer')->first();
             $admin->roles()->attach($admin_role);
 
-        return redirect("dashboard")->withSuccess('You have signed-in');
-
+        return redirect("login")->withSuccess('You Registration complete.');
     }
    
 
     public function dashboard()
     {
         if(Auth::check()){
-            return view('pages.home');
+            return view('pages.secure.admin.home');
         } 
 
         return redirect("login")->withSuccess('You are not allowed to access');
-
     }
     
 

@@ -562,7 +562,7 @@
       <div class="card-body">
         <div class="card-group mb-5">
           <div class="card">
-            <img class="card-img-top" src="{{ asset('assets/img/elements/4.jpg') }}" alt="Card image cap" />
+            <img class="card-img-top" src="https://images.pexels.com/photos/6446685/pexels-photo-6446685.jpeg?auto=compress&cs=tinysrgb&w=447&h=447&dpr=1" alt="Card image cap" />
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">
